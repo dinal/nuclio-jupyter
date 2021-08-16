@@ -126,11 +126,11 @@ class CronTrigger(NuclioTrigger):
 class KafkaTrigger(NuclioTrigger):
     kind = "kafka"
 
-    def __init__(self, url, topic, partitions=None):
+    def __init__(self, url, topics, partitions=None):
         super(KafkaTrigger, self).__init__({
             "kind": self.kind,
             "url": url,
-            "attributes": {"topic": topic},
+            "attributes": {"topics": topics},
         })
         partitions = partitions or []
         if partitions:
